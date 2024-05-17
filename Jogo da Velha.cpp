@@ -42,3 +42,28 @@ void placar(){
 	}
 }
 
+void tabuleiroSimples(){ 
+	printf("\t1 | 2 | 3\n");
+	printf("\t-----------\n");
+	printf("\t4 | 5 | 6\n");
+	printf("\t-----------\n");
+	printf("\t7 | 8 | 9\n");
+}
+
+void imprimeTabuleiro(){ 
+	printf("\t%c | %c | %c\n", jogo.tabuleiro[0], jogo.tabuleiro[1], jogo.tabuleiro[2]);
+	printf("\t----------\n");
+	printf("\t%c | %c | %c\n", jogo.tabuleiro[3], jogo.tabuleiro[4], jogo.tabuleiro[5]);
+	printf("\t----------\n");
+	printf("\t%c | %c | %c\n", jogo.tabuleiro[6], jogo.tabuleiro[7], jogo.tabuleiro[8]);
+}
+
+bool jogadaInvalida(){  
+	if(jogo.posicaoEscolhida < 1 || jogo.posicaoEscolhida > 9 || jogo.tabuleiro[jogo.posicaoEscolhida - 1 ] == 'X' || jogo.tabuleiro[jogo.posicaoEscolhida - 1 ] == 'O'){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
