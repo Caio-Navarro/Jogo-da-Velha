@@ -66,4 +66,56 @@ bool jogadaInvalida(){
 	}
 }
 
+bool empate(){        
+	return jogo.vezesJogadas == 9;
+}
+
+bool verificaVitoriaX(){      
+	if(jogo.tabuleiro[0] == 'X' && jogo.tabuleiro[1] == 'X' && jogo.tabuleiro[2] == 'X'){
+		return true;
+	}else if(jogo.tabuleiro[3] == 'X' && jogo.tabuleiro[4] == 'X' && jogo.tabuleiro[5] == 'X'){
+		return true;
+	}else if(jogo.tabuleiro[6] == 'X' && jogo.tabuleiro[7] == 'X' && jogo.tabuleiro[8] == 'X'){
+		return true;
+	}else if(jogo.tabuleiro[0] == 'X' && jogo.tabuleiro[3] == 'X' && jogo.tabuleiro[6] == 'X'){
+		return true;
+	}else if(jogo.tabuleiro[1] == 'X' && jogo.tabuleiro[4] == 'X' && jogo.tabuleiro[7] == 'X'){
+		return true;
+	}else if(jogo.tabuleiro[2] == 'X' && jogo.tabuleiro[5] == 'X' && jogo.tabuleiro[8] == 'X'){
+		return true;
+	}
+	else if(jogo.tabuleiro[0] == 'X' && jogo.tabuleiro[4] == 'X' && jogo.tabuleiro[8] == 'X'){
+		return true;
+	}else if(jogo.tabuleiro[2] == 'X' && jogo.tabuleiro[4] == 'X' && jogo.tabuleiro[6] == 'X'){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+bool verificaVitoriaO(){                  
+	if(jogo.tabuleiro[0] == 'O' && jogo.tabuleiro[1] == 'O' && jogo.tabuleiro[2] == 'O'){
+		return true;
+	}else if(jogo.tabuleiro[3] == 'O' && jogo.tabuleiro[4] == 'O' && jogo.tabuleiro[5] == 'O'){
+		return true;
+	}else if(jogo.tabuleiro[6] == 'O' && jogo.tabuleiro[7] == 'O' && jogo.tabuleiro[8] == 'O'){
+		return true;
+	}else if(jogo.tabuleiro[0] == 'O' && jogo.tabuleiro[3] == 'O' && jogo.tabuleiro[6] == 'O'){
+		return true;
+	}else if(jogo.tabuleiro[1] == 'O' && jogo.tabuleiro[4] == 'O' && jogo.tabuleiro[7] == 'O'){
+		return true;
+	}else if(jogo.tabuleiro[2] == 'O' && jogo.tabuleiro[5] == 'O' && jogo.tabuleiro[8] == 'O'){
+		return true;
+	}
+	else if(jogo.tabuleiro[0] == 'O' && jogo.tabuleiro[4] == 'O' && jogo.tabuleiro[8] == 'O'){
+		return true;
+	}else if(jogo.tabuleiro[2] == 'O' && jogo.tabuleiro[4] == 'O' && jogo.tabuleiro[6] == 'O'){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+
 
