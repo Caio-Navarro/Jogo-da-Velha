@@ -18,7 +18,7 @@ void corrigirAcentuacao(){
 	setlocale(LC_ALL, "Portuguese");
 }
 
-void comecaJogo(){
+void comecarJogo(){
 	printf("\nPressione qualquer tecla para começar o jogo...");
 	getchar();
 }
@@ -116,6 +116,74 @@ bool verificaVitoriaO(){
 	}
 }
 
+void limparTabuleiro() {                  
+    for (int i = 0; i < 9; i++) {
+        jogo.tabuleiro[i] = ' ';
+    }
+    jogo.posicaoEscolhida = 0;
+    jogo.vezesJogadas = 0;
+}
 
-
-
+void jogar(){                              
+	int vez = 0; 
+	char jogarNovamente;
+	
+	do{
+		system("cls");
+		limparTabuleiro();
+		
+		fflush(stdin);
+		tabuleiroSimples();
+		comecarJogo();
+		
+		while(jogo.vezesJogadas < 9){
+			system("cls");
+			imprimeTabuleiro();
+			
+			if(verificaVitoriaX()){
+				printf("\nJogador X venceu!\n");
+				jogo.placarX++;
+				break;
+			}
+			
+			if(verificaVitoriaO()){
+				printf("\nJogador O venceu!\n");
+				jogo.placarO++;
+				break;
+			}
+			
+			if(vez%2 == 0){ 
+				printf("Jogador X\n");
+			}else{
+				printf("Jogador O\n");
+			}
+			
+			printf("Onde deseja jogar? [1-9]: ");
+			scanf(" %d", &jogo.posicaoEscolhida);
+			
+			if(jogadaInvalida()){
+				printf("\nPosição Inválida!\n");
+				system("pause");
+				continue; 
+			}
+			
+			if(vez%2 == 0){
+				jogo.tabuleiro[jogo.posicaoEscolhida - 1] = 'X';
+			}else{
+				jogo.tabuleiro[jogo.posicaoEscolhida - 1] = 'O';
+			}
+			
+			jogo.vezesJogadas++; 
+			vez++;
+			
+			if(empate()){
+				jogo.empates++;
+				system("cls");
+				printf("Empate!\n");
+				break;
+			}
+		}
+		printf("Deseja jogar novamente? [S/N]: ");
+		scanf(" %c", &jogarNovamente);
+	}while(jogarNovamente == 'S' || jogarNovamente == 's');
+}
