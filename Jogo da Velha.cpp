@@ -187,3 +187,47 @@ void jogar(){
 		scanf(" %c", &jogarNovamente);
 	}while(jogarNovamente == 'S' || jogarNovamente == 's');
 }
+
+void controleMenu(int opcao){
+	switch(opcao){
+		case 1:
+			jogar();
+			break;
+		case 2:
+			placar();
+			break;
+		case 3:
+			creditos();
+			break;
+		case 4:
+			printf("Saindo...");
+			abort();
+		default:
+			printf("Opção invalida!\n\n");
+			menu();
+	}
+}
+
+void menu(){
+	int opcao;
+	
+	printf("*** Jogo da velha ***\n\n");
+	printf("1- Jogar\n");
+	printf("2- Placar\n");
+	printf("3- Créditos\n");
+	printf("4- Sair\n");
+	printf("Escolha uma opção: ");
+	scanf("%d", &opcao);
+	
+	system("cls");
+	controleMenu(opcao);
+}
+
+int main(){
+	corrigirAcentuacao();
+	
+	while(1){
+		system("cls");
+		menu();
+	}
+}
